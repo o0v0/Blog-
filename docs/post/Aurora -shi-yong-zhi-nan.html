@@ -94,17 +94,17 @@ npm start</pre></div>
 <p>主题配置文件为根目录下 <code class="notranslate">src/config.js</code>，里面每个配置项皆有详细注释，这里对一些基本配置项做简要说明。</p>
 <h3>配置文章仓库</h3>
 <p>Aurora 使用 Github api 做后台数据托管。所以需要新建一个仓库来存放文章和一些自定义页面内容。这里新建一个仓库取名为 Blog 为例。</p>
-<p>由于 Github api 有访问次数限制，所以需要申请 token 来解除访问限制，[<a href="https://github.com/settings/tokens/new">申请地址戳这里</a>](<a href="https://github.com/settings/tokens/new)%E3%80%82%E5%B0%86%E7%94%B3%E8%AF%B7%E7%9A%84">https://github.com/settings/tokens/new)。将申请的</a> token 从中间随意拆成两部分填入配置项，拆分的目的避免代码提交的时候 github 对其进行检测，导致 token 失效。</p>
-<p><a target="_blank" rel="noopener noreferrer" href="/IMAGES/Aurora-%E9%A3%9F%E7%94%A8%E6%8C%87%E5%8D%97/github_token.png"><img src="/IMAGES/Aurora-%E9%A3%9F%E7%94%A8%E6%8C%87%E5%8D%97/github_token.png" alt="Github Token" style="max-width: 100%;"></a></p>
+<p>由于 Github api 有访问次数限制，所以需要申请 token 来解除访问限制，<a href="https://github.com/settings/tokens/new">申请地址戳这里</a>。将申请的 token 从中间随意拆成两部分填入配置项，拆分的目的避免代码提交的时候 github 对其进行检测，导致 token 失效。</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://raw.githubusercontent.com/o0v0/o0v0/main/Aurora%20%E9%A3%9F%E7%94%A8%E6%8C%87%E5%8D%97/image.png"><img src="https://raw.githubusercontent.com/o0v0/o0v0/main/Aurora%20%E9%A3%9F%E7%94%A8%E6%8C%87%E5%8D%97/image.png" alt="Github Token" style="max-width: 100%;"></a></p>
 <div class="highlight highlight-source-js"><pre class="notranslate"><span class="pl-c">// github 用户名</span>
 <span class="pl-s1">username</span>: <span class="pl-s">'chanshiyucx'</span><span class="pl-kos">,</span>
 <span class="pl-c">// 仓库地址</span>
 <span class="pl-s1">repository</span>: <span class="pl-s">'blog'</span><span class="pl-kos">,</span>
 <span class="pl-c">// token 从中间任意位置拆开成两部分，避免 github 代码检测失效</span>
 <span class="pl-s1">token</span>: <span class="pl-kos">[</span><span class="pl-s">'0ad1a0539c5b96fd18fa'</span><span class="pl-kos">,</span> <span class="pl-s">'aaafba9c7d1362a5746c'</span><span class="pl-kos">]</span><span class="pl-kos">,</span></pre></div>
-<h3>配置 <a href="https://leancloud.cn/" rel="nofollow">Leancloud</a></h3>
+<h3>配置 Leancloud</h3>
 <p>Aurora 主题的文章阅读次数与 Valine 评论系统都是采用 <a href="https://leancloud.cn/" rel="nofollow">Leancloud</a> 存储。注册一个 Leancloud 账号并新建一个应用，将应用 key 填入相应配置项。 <strong>然后创建三个 Class，Comment 用来存储游客评论、Counter 用来存储文章热度、Visitor 用来统计友链访问次数，注意新建时选择表的访问权限无限制。</strong></p>
-<p><a target="_blank" rel="noopener noreferrer" href="/IMAGES/Aurora-%E9%A3%9F%E7%94%A8%E6%8C%87%E5%8D%97/Leancloud_%E5%BA%94%E7%94%A8_Key.png"><img src="/IMAGES/Aurora-%E9%A3%9F%E7%94%A8%E6%8C%87%E5%8D%97/Leancloud_%E5%BA%94%E7%94%A8_Key.png" alt="Leancloud_应用_Key" style="max-width: 100%;"></a></p>
+<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/o0v0/o0v0/blob/main/Aurora%20%E9%A3%9F%E7%94%A8%E6%8C%87%E5%8D%97/image%20(1).png?raw=true"><img src="https://github.com/o0v0/o0v0/blob/main/Aurora%20%E9%A3%9F%E7%94%A8%E6%8C%87%E5%8D%97/image%20(1).png?raw=true" alt="Leancloud_应用_Key" style="max-width: 100%;"></a></p>
 <div class="highlight highlight-source-js"><pre class="notranslate"><span class="pl-c">/**</span>
 <span class="pl-c"> * leancloud 配置 【文章浏览次数】</span>
 <span class="pl-c"> */</span>
@@ -116,10 +116,10 @@ leancloud: <span class="pl-kos">{</span>
 <p>LeanCloud 中国版 2019 年 10 月份后开始停止为不绑定自有域名的应用服务，所以需要将节点切换到国际版。</p>
 </blockquote>
 <h3>配置 Gitalk</h3>
-<p>Gitalk 是一个基于 GitHub Issue 和 Preact 开发的评论插件。其原理的文章存储是一样的，详细介绍见[<a href="https://github.com/gitalk/gitalk/blob/master/readme-cn.md">官方文档</a>](<a href="https://github.com/gitalk/gitalk/blob/master/readme-cn.md)%E3%80%82">https://github.com/gitalk/gitalk/blob/master/readme-cn.md)。</a></p>
-<p>首先需要申请 [<a href="https://github.com/settings/applications/new">GitHub Application</a>](<a href="https://github.com/settings/applications/new)%EF%BC%8C%E8%B7%B3%E8%BD%AC%E5%9C%B0%E5%9D%80%E5%A1%AB%E5%86%99%E4%BD%A0%E7%9A%84%E5%8D%9A%E5%AE%A2%E5%9F%9F%E5%90%8D%EF%BC%8C%E5%A6%82%E6%9E%9C%E4%BD%A0%E4%BD%BF%E7%94%A8">https://github.com/settings/applications/new)，跳转地址填写你的博客域名，如果你使用</a> github pages 来托管你的网站，你也可以使用 <code class="notranslate">https://chanshiyucx.github.io</code> 域名。最后将生成的 <code class="notranslate">Client ID</code> 和 <code class="notranslate">Client Secret</code> 填入相应配置项。<strong>在开发环境调试时 Gitlak 无法展示是正常现象，发布到线上后会正常显示。</strong></p>
-<p><a target="_blank" rel="noopener noreferrer" href="/IMAGES/Aurora-%E9%A3%9F%E7%94%A8%E6%8C%87%E5%8D%97/%E7%94%B3%E8%AF%B7_GitHub_Application.png"><img src="/IMAGES/Aurora-%E9%A3%9F%E7%94%A8%E6%8C%87%E5%8D%97/%E7%94%B3%E8%AF%B7_GitHub_Application.png" alt="申请 GitHub Application" style="max-width: 100%;"></a></p>
-<p><a target="_blank" rel="noopener noreferrer" href="/IMAGES/Aurora-%E9%A3%9F%E7%94%A8%E6%8C%87%E5%8D%97/%E7%94%9F%E6%88%90_clientID_%E5%92%8C_clientSecret.png"><img src="/IMAGES/Aurora-%E9%A3%9F%E7%94%A8%E6%8C%87%E5%8D%97/%E7%94%9F%E6%88%90_clientID_%E5%92%8C_clientSecret.png" alt="生成 clientID 和 clientSecret" style="max-width: 100%;"></a></p>
+<p>Gitalk 是一个基于 GitHub Issue 和 Preact 开发的评论插件。其原理的文章存储是一样的，详细介绍见<a href="https://github.com/gitalk/gitalk/blob/master/readme-cn.md">官方文档</a>。</p>
+<p>首先需要申请 <a href="https://github.com/settings/applications/new">GitHub Application</a>，跳转地址填写你的博客域名，如果你使用 github pages 来托管你的网站，你也可以使用 <code class="notranslate">https://chanshiyucx.github.io</code> 域名。最后将生成的 <code class="notranslate">Client ID</code> 和 <code class="notranslate">Client Secret</code> 填入相应配置项。<strong>在开发环境调试时 Gitlak 无法展示是正常现象，发布到线上后会正常显示。</strong></p>
+<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/o0v0/o0v0/blob/main/Aurora%20%E9%A3%9F%E7%94%A8%E6%8C%87%E5%8D%97/image%20(2).png?raw=true"><img src="https://github.com/o0v0/o0v0/blob/main/Aurora%20%E9%A3%9F%E7%94%A8%E6%8C%87%E5%8D%97/image%20(2).png?raw=true" alt="申请 GitHub Application" style="max-width: 100%;"></a></p>
+<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/o0v0/o0v0/blob/main/Aurora%20%E9%A3%9F%E7%94%A8%E6%8C%87%E5%8D%97/image%20(3).png?raw=true"><img src="https://github.com/o0v0/o0v0/blob/main/Aurora%20%E9%A3%9F%E7%94%A8%E6%8C%87%E5%8D%97/image%20(3).png?raw=true" alt="生成 clientID 和 clientSecret" style="max-width: 100%;"></a></p>
 <div class="highlight highlight-source-js"><pre class="notranslate"><span class="pl-c">/**</span>
 <span class="pl-c"> * Gittalk 配置【评论功能】</span>
 <span class="pl-c"> */</span>
@@ -133,19 +133,19 @@ gitalk: <span class="pl-kos">{</span>
 <span class="pl-kos">}</span></pre></div>
 <p>到此为止，所有主要的配置项皆已完成，剩下的几个配置项非常简单，相信你自己可以配置完善。</p>
 <h2>页面模板</h2>
-<p>为了更好地定制各个页面的展示效果，Aurora 约定一些页面格式以便内容能够正确解析。主要约定 <code class="notranslate">文章、书单、友链、关于</code> 四个页面内容模板。模板参考 [<a href="https://github.com/chanshiyucx/blog/issues">蝉時雨の Issues</a>](<a href="https://github.com/chanshiyucx/blog/issues)%E3%80%82">https://github.com/chanshiyucx/blog/issues)。</a></p>
+<p>为了更好地定制各个页面的展示效果，Aurora 约定一些页面格式以便内容能够正确解析。主要约定 <code class="notranslate">文章、书单、友链、关于</code> 四个页面内容模板。模板参考 <a href="https://github.com/chanshiyucx/blog/issues">蝉時雨の Issues</a>。</p>
 <h3>文章模板</h3>
 <p>文章模板没有太多的格式约束，只需要在文章正文顶部加上封面配图即可，配图采用的是 markdown 的注释语法，所以并不会在正文里渲染，以后即使你更换博客主题，也不会影响内容的展示。</p>
 <div class="highlight highlight-text-md"><pre class="notranslate"><span class="pl-s">[</span><span class="pl-en">pixiv: 41652582</span><span class="pl-s">]</span>: <span class="pl-corl">#</span> <span class="pl-s">"</span><span class="pl-s">/IMAGES/bg/3.jpg</span><span class="pl-s">"</span></pre></div>
 <p>由于博客的文章、友链、书单、关于、心情等内容都放在 issues 里，所以需要对它们进行区分，这里主要使用 <code class="notranslate">issues 状态</code>与 <code class="notranslate">Labels</code> 进行分类。</p>
 <p>首先需要规定的是<strong>文章的 issues 状态都是 <code class="notranslate">open</code> 的，友链、书单、关于、心情页面的 issues 内容都是 <code class="notranslate">closed</code> 状态的</strong>。</p>
 <p>新建文章的时候 <code class="notranslate">Labels</code> 表示文章标签，<code class="notranslate">Milestone</code> 代表文章的分类，同时在文章正文顶部使用 markdown 注释来设置文章封面图，如下所示：</p>
-<p><a target="_blank" rel="noopener noreferrer" href="/IMAGES/Aurora-%E9%A3%9F%E7%94%A8%E6%8C%87%E5%8D%97/%E6%96%87%E7%AB%A0%E6%A8%A1%E6%9D%BF.png"><img src="/IMAGES/Aurora-%E9%A3%9F%E7%94%A8%E6%8C%87%E5%8D%97/%E6%96%87%E7%AB%A0%E6%A8%A1%E6%9D%BF.png" alt="文章模板" style="max-width: 100%;"></a></p>
+<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/o0v0/o0v0/blob/main/Aurora%20%E9%A3%9F%E7%94%A8%E6%8C%87%E5%8D%97/image%20(4).png?raw=true"><img src="https://github.com/o0v0/o0v0/blob/main/Aurora%20%E9%A3%9F%E7%94%A8%E6%8C%87%E5%8D%97/image%20(4).png?raw=true" alt="文章模板" style="max-width: 100%;"></a></p>
 <p>Tips：通过给正文图片预设尺寸可以获得更流畅的图片加载效果，尺寸设置形如 <code class="notranslate">?vw=1920&amp;vh=1080</code>，举个栗子：</p>
 <div class="highlight highlight-text-md"><pre class="notranslate"><span class="pl-s">[</span>预设尺寸<span class="pl-s">]</span><span class="pl-s">(</span><span class="pl-corl">/IMAGES/bg.png?vw=1920&amp;vh=1080</span><span class="pl-s">)</span></pre></div>
 <h3>心情模板</h3>
 <p>注意心情 issues 状态是 <code class="notranslate">closed</code> 的，且需要打上 <code class="notranslate">Inspiration</code> 的 Labels，其他不做约束。</p>
-<p><a target="_blank" rel="noopener noreferrer" href="/IMAGES/Aurora-%E9%A3%9F%E7%94%A8%E6%8C%87%E5%8D%97/%E9%A1%B5%E9%9D%A2%E6%A8%A1%E6%9D%BF.png"><img src="/IMAGES/Aurora-%E9%A3%9F%E7%94%A8%E6%8C%87%E5%8D%97/%E9%A1%B5%E9%9D%A2%E6%A8%A1%E6%9D%BF.png" alt="书单、友链、关于标签" style="max-width: 100%;"></a></p>
+<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/o0v0/o0v0/blob/main/Aurora%20%E9%A3%9F%E7%94%A8%E6%8C%87%E5%8D%97/image%20(5).png?raw=true"><img src="https://github.com/o0v0/o0v0/blob/main/Aurora%20%E9%A3%9F%E7%94%A8%E6%8C%87%E5%8D%97/image%20(5).png?raw=true" alt="书单、友链、关于标签" style="max-width: 100%;"></a></p>
 <h3>友链模板</h3>
 <p>友链页面使用空行做分割，内容示例如下：</p>
 <pre lang="text" class="notranslate"><code class="notranslate">## 阁子
@@ -171,9 +171,9 @@ description: 柏林已经来了命令，阿尔萨斯和洛林的学校只许教 
 <h3>关于模板</h3>
 <p>关于页面以 <code class="notranslate">## 段落</code> 拆分，其他不做约束。</p>
 <h3>添加分类</h3>
-<p><a target="_blank" rel="noopener noreferrer" href="/IMAGES/Aurora-%E9%A3%9F%E7%94%A8%E6%8C%87%E5%8D%97/Aurora%E5%88%86%E7%B1%BB.png"><img src="/IMAGES/Aurora-%E9%A3%9F%E7%94%A8%E6%8C%87%E5%8D%97/Aurora%E5%88%86%E7%B1%BB.png" alt="添加分类" style="max-width: 100%;"></a></p>
+<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/o0v0/o0v0/blob/main/Aurora%20%E9%A3%9F%E7%94%A8%E6%8C%87%E5%8D%97/image%20(6).png?raw=true"><img src="https://github.com/o0v0/o0v0/blob/main/Aurora%20%E9%A3%9F%E7%94%A8%E6%8C%87%E5%8D%97/image%20(6).png?raw=true" alt="添加分类" style="max-width: 100%;"></a></p>
 <h2>部署</h2>
-<p>Aurora 2.0 添加一键部署功能，只需要编辑 <code class="notranslate">build.sh</code>，配置自己的仓库和域名，之后命令行执行 <code class="notranslate">./build.sh</code>，即可自动打包并上传到指定仓库，将该仓库开启 <code class="notranslate">Github Pages</code> 功能即可在线访问。相关文档参考[<a href="https://cli.vuejs.org/zh/guide/deployment.html#now" rel="nofollow">自动部署</a>](<a href="https://cli.vuejs.org/zh/guide/deployment.html#now)%E3%80%82" rel="nofollow">https://cli.vuejs.org/zh/guide/deployment.html#now)。</a></p>
+<p>Aurora 2.0 添加一键部署功能，只需要编辑 <code class="notranslate">build.sh</code>，配置自己的仓库和域名，之后命令行执行 <code class="notranslate">./build.sh</code>，即可自动打包并上传到指定仓库，将该仓库开启 <code class="notranslate">Github Pages</code> 功能即可在线访问。相关文档参考<a href="https://cli.vuejs.org/zh/guide/deployment.html#now" rel="nofollow">自动部署</a>。</p>
 <p>Just enjoy it! 😃</p></div>
 <div style="font-size:small;margin-top:8px;float:right;"></div>
 <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
