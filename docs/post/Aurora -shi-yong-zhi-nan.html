@@ -4,7 +4,7 @@
     <meta content="text/html; charset=utf-8" http-equiv="content-type" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link href="//cdn.staticfile.net/Primer/21.0.7/primer.css" rel="stylesheet" />
+    <link href='https://mirrors.sustech.edu.cn/cdnjs/ajax/libs/Primer/21.0.7/primer.css' rel='stylesheet' />
     <link rel="icon" href="https://pic2.ziyuan.wang/user/0w0/2024/05/avatar_a48f5e73af742.gif"><script>
         let theme = localStorage.getItem("meek_theme") || "light";
         document.documentElement.setAttribute("data-color-mode", theme);
@@ -176,8 +176,10 @@ description: 柏林已经来了命令，阿尔萨斯和洛林的学校只许教 
 <p>Aurora 2.0 添加一键部署功能，只需要编辑 <code class="notranslate">build.sh</code>，配置自己的仓库和域名，之后命令行执行 <code class="notranslate">./build.sh</code>，即可自动打包并上传到指定仓库，将该仓库开启 <code class="notranslate">Github Pages</code> 功能即可在线访问。相关文档参考<a href="https://cli.vuejs.org/zh/guide/deployment.html#now" rel="nofollow">自动部署</a>。</p>
 <p>Just enjoy it! 😃</p></div>
 <div style="font-size:small;margin-top:8px;float:right;"></div>
+
 <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
 <div class="comments" id="comments"></div>
+
 </div>
     <div id="footer">Copyright © <span id="year"></span><a href="https://o0v0.github.io/Blog-"> 0w0的收藏夹 </a>
 <p>
@@ -232,6 +234,8 @@ console.log("\n %c Gmeek last https://github.com/Meekdai/Gmeek \n\n","padding:5p
 <script>
 document.getElementById("pathHome").setAttribute("d",IconList["home"]);
 document.getElementById("pathIssue").setAttribute("d",IconList["github"]);
+
+
 
 function openComments(){
     cm=document.getElementById("comments");
